@@ -31,12 +31,12 @@ inputs:
       Default is added.
     required: false
     default: "added"
-  fail_on_error:
+  fail_level:
     description: |
-      Exit code for reviewdog when errors are found [true,false]
-      Default is `false`.
+      Fail issue severities are fail_level or higher [none, any, info, warning, error]
+      Default is `none`.
     required: false
-    default: "false"
+    default: "none"
   reviewdog_flags:
     description: "Additional reviewdog flags"
     required: false
@@ -50,5 +50,5 @@ inputs:
     required: false
     default: latest
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'

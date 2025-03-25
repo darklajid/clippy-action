@@ -18,7 +18,7 @@ jobs:
     - uses: dtolnay/rust-toolchain@stable
       with:
         components: clippy
-    - uses: giraffate/clippy-action@v1
+    - uses: darklajid/clippy-action@v1.1
       with:
         reporter: 'github-pr-review'
         github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -42,7 +42,7 @@ Optional. Tool name to use for reviewdog reporter. Useful when running multiple 
 
 ### `level`
 
-Optional. Report level for reviewdog [info,warning,error].
+Optional. Report level for reviewdog [`info`, `warning`, `error`].
 It's same as `-level` flag of reviewdog.
 
 ### `workdir`
@@ -51,7 +51,7 @@ Optional. Working directory relative to the root directory.
 
 ### `reporter`
 
-Optional. Reporter of reviewdog command [github-pr-check,github-pr-review].
+Optional. Reporter of reviewdog command [`github-pr-check`, `github-pr-review`].
 It's same as `-reporter` flag of reviewdog.
 
 #### github-pr-review
@@ -67,13 +67,13 @@ It's same as `-reporter` flag of reviewdog.
 
 ### `filter_mode`
 
-Optional. Filtering mode for the reviewdog command [added,diff_context,file,nofilter].
+Optional. Filtering mode for the reviewdog command [`added`, `diff_context`, `file`, `nofilter`].
 Default is added.
 
-### `fail_on_error`
+### `fail_level`
 
-Optional. Exit code for reviewdog when errors are found [`true`, `false`]
-Default is `false`.
+Optional. Minimum issue level for review dog to report failure [`none`, `any`, `info`, `warning`, `error`]
+Default is `none`.
 
 ### `reviewdog_flags`
 

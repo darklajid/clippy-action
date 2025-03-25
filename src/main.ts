@@ -58,7 +58,11 @@ async function run(): Promise<void> {
                 try {
                   content = JSON.parse(line)
                 } catch (error) {
-                  core.debug('failed to parse JSON')
+                  if (error instanceof Error) {
+                    core.info(`failed to parse JSON: ${error.message}`)
+                  } else {
+                    core.info(`failed to parse JSON: ${error}`)
+                  }
                   return
                 }
 
